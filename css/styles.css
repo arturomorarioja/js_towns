@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+
+:root {
+    --colorTextSecondary: floralwhite;
+
+    --colorPrimary: #20408A;
+    --colorSecondary: #A9ABAE;
+    --colorTertiary: whitesmoke;
+
+    --fontMain: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: var(--fontMain);
+}
+
+header {
+    padding: 0.5rem 0 0.5rem 2rem;
+    color: var(--colorTextSecondary);
+    background-color: var(--colorPrimary);
+}
+
+nav {
+    border-bottom: 0.25rem solid var(--colorPrimary);
+    background-color: var(--colorTertiary);
+}
+nav ul {
+    padding: 0.25rem 1rem;
+}
+nav li {
+    display: inline-block;
+    padding: 0 1rem;
+    list-style: none;
+}
+nav a {
+    color: var(--colorPrimary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main {
+    padding: 0.5rem 1rem;
+    line-height: 1.4rem;
+}
+
+main > article {
+    display: none;
+    padding: 1rem;    
+}
+main > article:target {
+    display: block;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0.25rem 0 0.25rem 0;
+    color: var(--colorTextSecondary);
+    background-color: var(--colorPrimary);
+    text-align: center;
+}
+
+article.town {
+    border: thin solid var(--colorPrimary);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/*
+    Form elements
+*/
+
+form > div {
+    display: flex;
+    flex-flow: row wrap;    
+}
+label {
+    flex: 0 0 7rem;
+}
+/*
+    Nice hack to prevent the superindex from affecting line height
+    https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
+*/
+sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4rem;
+}
+
+input[type=number] {
+    text-align: right;
+}
+
+input[type=submit], button {
+    display: inline-block;
+    border: thin solid var(--colorSecondary);
+    color: var(--colorPrimary);
+    background-color: var(--colorTertiary);
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    font-family: var(--fontMain);
+    font-size: 1.1rem;
+}

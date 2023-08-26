@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danish towns</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Danish towns</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#list">List</a></li>
+            <li><a href="#new">New</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article id="list"></article>
+        <article id="new">
+            <form>
+                <div>
+                    <label for="txtName">Name</label>
+                    <input type="text" id="txtName">
+                </div>
+                <div>
+                    <label for="txtRegion">Region</label>
+                    <input type="text" id="txtRegion">
+                </div>
+                <div>
+                    <label for="txtArea">Area (in m<sup>2</sup>)</label>
+                    <input type="number" id="txtArea">
+                </div>
+                <div>
+                    <label for="txtPopulation">Population</label>
+                    <input type="number" id="txtPopulation">
+                </div>
+                <div>
+                    <label for="txtWebsite">Website</label>
+                    <input type="url" id="txtWebsite">
+                </div>
+                <input type="submit" value="Submit data">
+            </form>
+        </article>
+    </main>
+    <footer>
+        <p>&copy; 2023 KEA Development</p>
+    </footer>
+</body>
+</html>
