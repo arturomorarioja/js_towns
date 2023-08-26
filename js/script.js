@@ -57,19 +57,20 @@ const townCard = (town) => {
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
     deleteButton.classList.add('delete');
-    deleteButton.addEventListener('click', async function(e) {
-        e.preventDefault();
+    deleteButton.addEventListener('click', deleteTown);
+    // deleteButton.addEventListener('click', async function(e) {
+    //     e.preventDefault();
 
-        const id = this.parentElement.parentElement.getAttribute('data-id');
-        await fetch(baseUrl + '/towns/' + id, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then((response) => { console.log(response); })
-        .then((data) => { console.log(data); })
-        .catch((error) => { console.log(error); });
-    });
+    //     const id = this.parentElement.parentElement.getAttribute('data-id');
+    //     await fetch(baseUrl + '/towns/' + id, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //     }).then((response) => { console.log(response); })
+    //     .then((data) => { console.log(data); })
+    //     .catch((error) => { console.log(error); });
+    // });
 
     form.append(editButton);
     form.append(deleteButton);
@@ -81,7 +82,7 @@ const townCard = (town) => {
 /**
  * Add town
  */
-document.querySelector('#new > form').addEventListener('submit', async (e) => {
+document.querySelector('#new > form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const newTown = {
@@ -106,14 +107,18 @@ document.querySelector('#new > form').addEventListener('submit', async (e) => {
 /**
  * Delete town
  */
-document.querySelectorAll('.delete').forEach((deleteButton) => {
-    deleteButton.addEventListener('click', function(e) {
-        alert('clicked');
-        e.preventDefault();
+const deleteTown = async function(e) {
+    e.preventDefault();
 
-        const id = this.parentElement.parentElement.getAttribute('data-id');
-        alert(id);
-    });
-});
+    const id = this.parentElement.parentElement.getAttribute('data-id');
+    await fetch(baseUrl + '/towns/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then((response) => { console.log(response); })
+    .then((data) => { console.log(data); })
+    .catch((error) => { console.log(error); });
+}
 
 listLink.click();
