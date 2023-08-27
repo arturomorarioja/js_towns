@@ -30,13 +30,6 @@ main {
     margin-bottom: 1rem;
 }
 
-main > article {
-    display: none;
-}
-main > article:target {
-    display: block;
-}
-
 footer {
     position: fixed;
     bottom: 0;
@@ -77,6 +70,16 @@ dialog {
 
 dialog > form {
     margin: 1rem;
+}
+
+.close {
+    float: right;
+    margin: -0.5rem 0.4rem 0 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.close:hover {
+    cursor: pointer;
 }
 
 /*

@@ -1,7 +1,19 @@
+/**
+ * Sample front-end application to illustrate the use of JSON server 
+ * (https://www.npmjs.com/package/json-server)
+ * 
+ * JSON server creates a REST API from the JSON file data/towns.json
+ * 
+ * @author  Arturo Mora-Rioja
+ * @version 1.0.0 August 2023
+ */
 'use strict';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'http://localhost:3000';    // JSON server URL
 
+/**
+ * Town list generation
+ */
 const showTownList = () => {
     fetch(baseUrl + '/towns')
     .then((response) => {
@@ -16,6 +28,7 @@ const showTownList = () => {
     });
 };
 
+// Town card generation
 const townCard = (town) => {
     /**
      * A template literal does not work in this case
@@ -65,16 +78,32 @@ const townCard = (town) => {
     return article;
 }
 
+/**
+ * Modal
+ */
+
 const dialog = document.querySelector('dialog');
 const dialogHeader = document.querySelector('dialog h2');
 
+// Modal closing
+document.querySelectorAll('dialog input[value=Cancel], .close').forEach((element) => {
+    element.addEventListener('click', () => {
+        dialog.close();
+    });    
+});    
+
+// Initialising the modal to add a town
 document.querySelector('#new').addEventListener('click', function (e) {
     e.preventDefault();
 
     dialogHeader.innerText = 'New town';
+    document.querySelectorAll('dialog div > input').forEach(function(input) {
+        input.value = '';
+    });
     dialog.showModal();
 });
 
+// Initialising the modal to edit a town
 const editTown = function() {
     dialogHeader.innerText = 'Edit town';
 
@@ -90,18 +119,16 @@ const editTown = function() {
     dialog.showModal();
 }
 
-document.querySelector('dialog input[value=Cancel]').addEventListener('click', () => {
-    dialog.close();
-});
-
 /**
  * Save town (add or edit)
  */
 document.querySelector('dialog > form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
+    // Add town
     let url = baseUrl + '/towns';
     let httpMethod = 'POST';
+    // Edit town
     if (dialogHeader.innerText === 'Edit town') {
         httpMethod = 'PUT';
         url += '/' + dialog.getAttribute('town-id');
