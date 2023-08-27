@@ -40,10 +40,10 @@ const townCard = (town) => {
     article.setAttribute('data-id', town.id);
 
     article.innerHTML = `
-        <p><strong>${town.name}</strong></p>
-        <p>Region ${town.region}</p>
-        <p>Area: ${town.area} m<sup>2</sup>. Population: ${town.population}</p>
-        <p>Website: <a href="${town.website}" target="_blank" title="${town.name}'s website">${town.website}</a></p>
+        <p><strong><span class="name">${town.name}</span></strong></p>
+        <p>Region <span class="region">${town.region}</span></p>
+        <p>Area: <span class="area">${town.area}</span> m<sup>2</sup>. Population: <span class="population">${town.population}</span></p>
+        <p>Website: <a href="${town.website}" target="_blank" title="${town.name}'s website"><span class="website">${town.website}</span></a></p>
     `;
 
     const form = document.createElement('form');
@@ -51,6 +51,7 @@ const townCard = (town) => {
     const editButton = document.createElement('button');
     editButton.innerText = 'Edit';
     editButton.classList.add('edit');
+    editButton.addEventListener('click', editTown);
     
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
@@ -65,24 +66,48 @@ const townCard = (town) => {
 }
 
 const dialog = document.querySelector('dialog');
+const dialogHeader = document.querySelector('dialog h2');
+
 document.querySelector('#new').addEventListener('click', function (e) {
     e.preventDefault();
 
-    document.querySelector('dialog h2').innerText = 'New town';
+    dialogHeader.innerText = 'New town';
     dialog.showModal();
 });
+
+const editTown = function() {
+    dialogHeader.innerText = 'Edit town';
+
+    const townID = this.parentElement.parentElement.getAttribute('data-id');
+    dialog.setAttribute('town-id', townID);
+
+    document.querySelector('#txtName').value = document.querySelector(`article[data-id="${townID}"] span.name`).innerText;
+    document.querySelector('#txtRegion').value = document.querySelector(`article[data-id="${townID}"] span.region`).innerText;
+    document.querySelector('#txtArea').value = document.querySelector(`article[data-id="${townID}"] span.area`).innerText;
+    document.querySelector('#txtPopulation').value = document.querySelector(`article[data-id="${townID}"] span.population`).innerText;
+    document.querySelector('#txtWebsite').value = document.querySelector(`article[data-id="${townID}"] span.website`).innerText;
+
+    dialog.showModal();
+}
 
 document.querySelector('dialog input[value=Cancel]').addEventListener('click', () => {
     dialog.close();
 });
 
 /**
- * Add town
+ * Save town (add or edit)
  */
 document.querySelector('dialog > form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const newTown = {
+    let url = baseUrl + '/towns';
+    let httpMethod = 'POST';
+    if (dialogHeader.innerText === 'Edit town') {
+        httpMethod = 'PUT';
+        url += '/' + dialog.getAttribute('town-id');
+    }
+
+    const town = {
         name: document.querySelector('#txtName').value,
         region: document.querySelector('#txtRegion').value,
         area: document.querySelector('#txtArea').value,
@@ -90,12 +115,12 @@ document.querySelector('dialog > form').addEventListener('submit', async functio
         website: document.querySelector('#txtWebsite').value
     };
 
-    await fetch(baseUrl + '/towns', {
-        method: 'POST',
+    await fetch(url, {
+        method: httpMethod,
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newTown)
+        body: JSON.stringify(town)
     }).then((response) => { console.log(response); })
     .then((data) => { console.log(data); })
     .catch((error) => { console.log(error); });
