@@ -17,14 +17,6 @@
       "website": "https://www.frederiksberg.dk"
     },
     {
-      "name": "Herlev",
-      "region": "Hovedstaden",
-      "area": "12000",
-      "population": "27405",
-      "website": "https://www.herlev.dk",
-      "id": "twOau3O"
-    },
-    {
       "name": "Rødovre",
       "region": "Hovedstaden",
       "area": "12120",
@@ -49,44 +41,12 @@
       "id": 5
     },
     {
-      "name": "sdsad",
-      "region": "",
-      "area": "",
-      "population": "",
-      "website": "https://www.a.com",
-      "id": 6
-    },
-    {
-      "name": "København",
-      "region": "Hovedstadenb",
-      "area": "1366301",
-      "population": "809314",
-      "website": "https://www.kk.dk",
-      "id": 7
-    },
-    {
-      "name": "fadf",
-      "region": "",
-      "area": "",
-      "population": "",
-      "website": "https://www.rk.dk",
-      "id": 8
-    },
-    {
-      "name": "sdsad324243-44",
-      "region": "cc",
-      "area": "4",
-      "population": "545",
-      "website": "https://www.a.com",
-      "id": 9
-    },
-    {
-      "name": "65526",
-      "region": "",
-      "area": "",
-      "population": "",
-      "website": "https://www.rk.dk",
-      "id": 11
+      "name": "Herlev",
+      "region": "Hovedstaden",
+      "area": "12000",
+      "population": "27405",
+      "website": "https://www.herlev.dk",
+      "id": "6"
     }
   ]
 }
