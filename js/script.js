@@ -1,10 +1,8 @@
 'use strict';
 
 const baseUrl = 'http://localhost:3000';
-const listLink = document.querySelector('a[href="#list"]');
 
-listLink.addEventListener('click', () => {
-    
+const showTownList = () => {
     fetch(baseUrl + '/towns')
     .then((response) => {
         return response.json();
@@ -16,7 +14,7 @@ listLink.addEventListener('click', () => {
     }).catch((error) => {
         console.log(error);
     });
-});
+};
 
 const townCard = (town) => {
     /**
@@ -58,19 +56,6 @@ const townCard = (town) => {
     deleteButton.innerText = 'Delete';
     deleteButton.classList.add('delete');
     deleteButton.addEventListener('click', deleteTown);
-    // deleteButton.addEventListener('click', async function(e) {
-    //     e.preventDefault();
-
-    //     const id = this.parentElement.parentElement.getAttribute('data-id');
-    //     await fetch(baseUrl + '/towns/' + id, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then((response) => { console.log(response); })
-    //     .then((data) => { console.log(data); })
-    //     .catch((error) => { console.log(error); });
-    // });
 
     form.append(editButton);
     form.append(deleteButton);
@@ -79,10 +64,22 @@ const townCard = (town) => {
     return article;
 }
 
+const dialog = document.querySelector('dialog');
+document.querySelector('#new').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    document.querySelector('dialog h2').innerText = 'New town';
+    dialog.showModal();
+});
+
+document.querySelector('dialog input[value=Cancel]').addEventListener('click', () => {
+    dialog.close();
+});
+
 /**
  * Add town
  */
-document.querySelector('#new > form').addEventListener('submit', async function(e) {
+document.querySelector('dialog > form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const newTown = {
@@ -121,4 +118,4 @@ const deleteTown = async function(e) {
     .catch((error) => { console.log(error); });
 }
 
-listLink.click();
+showTownList();

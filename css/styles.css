@@ -24,24 +24,6 @@ header {
     background-color: var(--colorPrimary);
 }
 
-nav {
-    border-bottom: 0.25rem solid var(--colorPrimary);
-    background-color: var(--colorTertiary);
-}
-nav ul {
-    padding: 0.25rem 1rem;
-}
-nav li {
-    display: inline-block;
-    padding: 0 1rem;
-    list-style: none;
-}
-nav a {
-    color: var(--colorPrimary);
-    font-weight: bold;
-    text-decoration: none;
-}
-
 main {
     padding: 0.5rem 1rem;
     line-height: 1.4rem;
@@ -50,7 +32,6 @@ main {
 
 main > article {
     display: none;
-    padding: 1rem;    
 }
 main > article:target {
     display: block;
@@ -66,6 +47,10 @@ footer {
     text-align: center;
 }
 
+section {
+    margin-bottom: 1rem;
+}
+
 article.town {
     border: thin solid var(--colorPrimary);
     border-radius: 0.5rem;
@@ -75,12 +60,32 @@ article.town {
 }
 
 /*
-    Form elements
+    Modal
 */
+
+dialog {
+    position: fixed;
+    top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    width: 80%;
+    border: solid 0.2rem var(--colorPrimary);
+    border-radius: 0.5rem;
+    padding: 0;
+}
+
+dialog > form {
+    margin: 1rem;
+}
+
+/*
+    Form elements
+*/    
 
 form > div {
     display: flex;
-    flex-flow: row wrap;    
+    flex-flow: row wrap;
 }
 label {
     flex: 0 0 7rem;
@@ -95,11 +100,15 @@ sup {
     top: -0.4rem;
 }
 
+form > div > input {
+    width: 100%;
+}
+
 input[type=number] {
     text-align: right;
 }
 
-input[type=submit], button {
+input[type=submit], input[type=button], button {
     display: inline-block;
     border: thin solid var(--colorSecondary);
     color: var(--colorPrimary);

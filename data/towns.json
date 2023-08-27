@@ -1,52 +1,60 @@
 {
-    "towns": [
-      {
-        "id": 1,
-        "name": "København",
-        "region": "Hovedstaden",
-        "area": 1366301,
-        "population": 809314,
-        "website": "https://www.kk.dk"
-      },
-      {
-        "id": 2,
-        "name": "Frederiksberg",
-        "region": "Hovedstaden",
-        "area": 8700,
-        "population": 102751,
-        "website": "https://www.frederiksberg.dk"
-      },
-      {
-        "name": "Herlev",
-        "region": "Hovedstaden",
-        "area": "12000",
-        "population": "27405",
-        "website": "https://www.herlev.dk",
-        "id": "twOau3O"
-      },
-      {
-        "name": "Rødovre",
-        "region": "Hovedstaden",
-        "area": "12120",
-        "population": "37529",
-        "website": "https://www.rk.dk",
-        "id": 3
-      },
-      {
-        "name": "Lyngby-Taarbæk",
-        "region": "Hovedstaden",
-        "area": "38880",
-        "population": "54279",
-        "website": "https://www.ltk.dk",
-        "id": 4
-      },
-      {
-        "name": "Brøndby",
-        "region": "Hovedstaden",
-        "area": "23050",
-        "population": "35538",
-        "website": "https://www.broendby.dk",
-        "id": 5
-      }
-    ]
-  }
+  "towns": [
+    {
+      "id": 1,
+      "name": "København",
+      "region": "Hovedstaden",
+      "area": 1366301,
+      "population": 809314,
+      "website": "https://www.kk.dk"
+    },
+    {
+      "id": 2,
+      "name": "Frederiksberg",
+      "region": "Hovedstaden",
+      "area": 8700,
+      "population": 102751,
+      "website": "https://www.frederiksberg.dk"
+    },
+    {
+      "name": "Herlev",
+      "region": "Hovedstaden",
+      "area": "12000",
+      "population": "27405",
+      "website": "https://www.herlev.dk",
+      "id": "twOau3O"
+    },
+    {
+      "name": "Rødovre",
+      "region": "Hovedstaden",
+      "area": "12120",
+      "population": "37529",
+      "website": "https://www.rk.dk",
+      "id": 3
+    },
+    {
+      "name": "Lyngby-Taarbæk",
+      "region": "Hovedstaden",
+      "area": "38880",
+      "population": "54279",
+      "website": "https://www.ltk.dk",
+      "id": 4
+    },
+    {
+      "name": "Brøndby",
+      "region": "Hovedstaden",
+      "area": "23050",
+      "population": "35538",
+      "website": "https://www.broendby.dk",
+      "id": 5
+    },
+    {
+      "name": "sdsad",
+      "region": "",
+      "area": "",
+      "population": "",
+      "website": "https://www.a.com",
+      "id": 6
+    }
+  ]
+}
