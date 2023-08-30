@@ -104,7 +104,9 @@ document.querySelector('#new').addEventListener('click', function (e) {
 });
 
 // Initialising the modal to edit a town
-const editTown = function() {
+const editTown = function(e) {
+    e.preventDefault();
+    
     dialogHeader.innerText = 'Edit town';
 
     const townID = this.parentElement.parentElement.getAttribute('data-id');
