@@ -12,7 +12,7 @@ The application provides CRUD functionality over a list of Danish towns.
 2. Run JSON Server: 
     - Windows: `json-server --watch data\towns.json`
     - Linux or Mac: `json-server --watch data/towns.json`
-3. Update the `baseUrl` constant in `script.js` with JSON Server's URL (by default, http://localhost:3000)
+3. Update the `BASE_URL` constant in `script.js` with JSON Server's URL (by default, http://localhost:3000)
 4. Open the application in a browser
 
 

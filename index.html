@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danish towns</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" defer></script>
+    <script src="js/script.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -15,7 +15,22 @@
         <section>
             <button id="new">New town</button>
         </section>
-        <article id="list"></article>
+        <section id="list">
+            <template id="town">
+                <article>
+                    <header>
+                        <h2></h2>
+                    </header>
+                    <p>Region <span class="region"></span></p>
+                    <p>Area: <span class="area"> m<sup>2</sup></span>. Population: <span class="population"></span></p>
+                    <p>Website: <a href="" target="_blank" title=""><span class="website"></span></a></p>
+                    <form>
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </form>
+                </article>
+            </template>
+        </section>
         <dialog>
             <header>
                 <div class="close">&times;</div>

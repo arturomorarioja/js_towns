@@ -12,113 +12,124 @@
 
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: var(--fontMain);
-}
 
-header {
-    padding: 0.5rem 0 0.5rem 2rem;
-    color: var(--colorTextSecondary);
-    background-color: var(--colorPrimary);
-}
+    header {
+        padding: 0.5rem 0 0.5rem 2rem;
+        color: var(--colorTextSecondary);
+        background-color: var(--colorPrimary);
+    }
 
-main {
-    padding: 0.5rem 1rem;
-    line-height: 1.4rem;
-    margin-bottom: 1rem;
-}
+    main {
+        padding: 0.5rem 1rem;
+        line-height: 1.4rem;
+        margin-bottom: 1rem;
+    }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 0.25rem 0 0.25rem 0;
-    color: var(--colorTextSecondary);
-    background-color: var(--colorPrimary);
-    text-align: center;
-}
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 0.25rem 0 0.25rem 0;
+        color: var(--colorTextSecondary);
+        background-color: var(--colorPrimary);
+        text-align: center;
+    }
 
-section {
-    margin-bottom: 1rem;
-}
+    section {
+        margin-bottom: 1rem;
+    }
 
-article.town {
-    border: thin solid var(--colorPrimary);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    overflow: hidden;
-}
+    article {
+        border: thin solid var(--colorPrimary);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
 
-/*
-    Modal
-*/
+        header {
+            padding: unset;
+            color: unset;
+            background-color: unset;
+        }
+    }
 
-dialog {
-    position: fixed;
-    top: 4rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 400px;
-    width: 80%;
-    border: solid 0.2rem var(--colorPrimary);
-    border-radius: 0.5rem;
-    padding: 0;
-}
+    /*
+        Modal
+    */
 
-dialog > form {
-    margin: 1rem;
-}
+    dialog {
+        position: fixed;
+        top: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+        width: 80%;
+        border: solid 0.2rem var(--colorPrimary);
+        border-radius: 0.5rem;
+        padding: 0;
+    }
 
-.close {
-    float: right;
-    margin: -0.5rem 0.4rem 0 0;
-    font-size: 2rem;
-    font-weight: bold;
-}
-.close:hover {
-    cursor: pointer;
-}
+    dialog > form {
+        margin: 1rem;
+    }
 
-/*
-    Form elements
-*/    
+    .close {
+        float: right;
+        margin: -0.5rem 0.4rem 0 0;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .close:hover {
+        cursor: pointer;
+    }
 
-form > div {
-    display: flex;
-    flex-flow: row wrap;
-}
-label {
-    flex: 0 0 7rem;
-}
-/*
-    Nice hack to prevent the superindex from affecting line height
-    https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
-*/
-sup {
-    vertical-align: baseline;
-    position: relative;
-    top: -0.4rem;
-}
+    /*
+        Form elements
+    */    
 
-form > div > input {
-    width: 100%;
-}
-
-input[type=number] {
-    text-align: right;
-}
-
-input[type=submit], input[type=button], button {
-    display: inline-block;
-    border: thin solid var(--colorSecondary);
-    color: var(--colorPrimary);
-    background-color: var(--colorTertiary);
-    margin: 0.5rem 0.5rem 0 0;
-    padding: 0.25rem 1rem;
-    border-radius: 0.25rem;
-    font-family: var(--fontMain);
-    font-size: 1.1rem;
+    form {
+        > div {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        label {
+            flex: 0 0 7rem;
+        }
+        /*
+            Nice hack to prevent the superindex from affecting line height
+            https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/
+        */
+        sup {
+            vertical-align: baseline;
+            position: relative;
+            top: -0.4rem;
+        }
+    
+        > div > input {
+            width: 100%;
+        }
+    
+        input[type=number] {
+            text-align: right;
+        }
+    
+    }
+    input[type=submit], input[type=button], button {
+        display: inline-block;
+        border: thin solid var(--colorSecondary);
+        color: var(--colorPrimary);
+        background-color: var(--colorTertiary);
+        margin: 0.5rem 0.5rem 0 0;
+        padding: 0.25rem 1rem;
+        border-radius: 0.25rem;
+        font-family: var(--fontMain);
+        font-size: 1.1rem;
+        cursor: pointer;
+    }    
 }
